@@ -4,7 +4,7 @@ import Logo from "../../assets/images/logo.svg";
 import HomeIcon from "../../assets/icons/home.svg";
 import notificationIcon from "../../assets/icons/notification.svg";
 import Avatar from "../../assets/images/avatars/avatar_1.png";
-import LogoutIcon from "../../assets/icons/logout.svg";
+import Logout from "../auth/Logout";
 
 const Header = () => {
   return (
@@ -25,9 +25,7 @@ const Header = () => {
           <button className="icon-btn">
             <img src={notificationIcon} alt="Notification" />
           </button>
-          <button className="icon-btn">
-            <img src={LogoutIcon} alt="Logout" />
-          </button>
+          <Logout />
 
           <button className="flex-center !ml-8 gap-3">
             <span className="text-lg font-medium lg:text-xl">Sumit</span>
