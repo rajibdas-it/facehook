@@ -2,6 +2,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Field from "../common/Field";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const {
@@ -9,11 +10,11 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  console.log(errors);
+  const navigate = useNavigate();
 
   const formSubmit = (formData) => {
     console.log(formData);
+    navigate("/");
   };
   return (
     <form
@@ -33,7 +34,13 @@ const LoginForm = () => {
       </Field>
       <Field label="Password" error={errors.password}>
         <input
-          {...register("password", { required: "Password is required" })}
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 8,
+              message: "Your password must be atleast 8 characters",
+            },
+          })}
           type="password"
           name="password"
           id="password"
