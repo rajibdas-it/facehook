@@ -2,6 +2,7 @@ import React from "react";
 
 import authIllustration from "../assets/images/auth_illustration.png";
 import { Link } from "react-router-dom";
+import LoginForm from "../Components/auth/LoginForm";
 
 const LoginPage = () => {
   return (
@@ -29,6 +30,7 @@ const LoginPage = () => {
           {/* <!-- login form --> */}
           <div className="card">
             {/* form  */}
+            <LoginForm />
             <div className="py-4 lg:py-6">
               <p className="text-center text-xs text-gray-600/95 lg:text-sm">
                 Don’t have account?
