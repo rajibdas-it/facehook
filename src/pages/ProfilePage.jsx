@@ -17,6 +17,7 @@ const ProfilePage = () => {
         const res = await api.get(
           `${import.meta.env.VITE_SERVER_BASE_URL}/profile/${auth?.user?.id}`
         );
+        console.log(res);
         setUser(res?.data?.user);
         setPosts(res?.data?.posts);
       } catch (error) {
