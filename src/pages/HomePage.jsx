@@ -4,7 +4,7 @@ import { useAuth } from "../hook/useAuth";
 
 const HomePage = () => {
   const { auth } = useAuth();
-  console.log(auth);
+  // console.log(auth);
   return (
     <div>
       <h1>Homepage</h1>
