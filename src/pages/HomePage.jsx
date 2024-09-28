@@ -7,7 +7,7 @@ const HomePage = () => {
   console.log(auth);
   return (
     <div>
-      <Header />
+      <h1>Homepage</h1>
     </div>
   );
 };
