@@ -17,7 +17,7 @@ const ProfilePage = () => {
         const res = await api.get(
           `${import.meta.env.VITE_SERVER_BASE_URL}/profile/${auth?.user?.id}`
         );
-        console.log(res);
+        // console.log(res);
         setUser(res?.data?.user);
         setPosts(res?.data?.posts);
       } catch (error) {
@@ -27,12 +27,17 @@ const ProfilePage = () => {
       }
     };
     fetchProfile();
-  }, []);
+  }, [api, auth?.user?.id]);
 
   if (loading) {
     return <div>Fetching your profile data</div>;
   }
-  return <div>{user?.firstName}</div>;
+  return (
+    <div>
+      Welcome, {user?.firstName} {user?.lastName}
+      <p>You have {posts.length} posts.</p>
+    </div>
+  );
 };
 
 export default ProfilePage;

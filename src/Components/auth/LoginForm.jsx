@@ -1,20 +1,22 @@
 /* eslint-disable no-extra-boolean-cast */
-import React, { useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import Field from "../common/Field";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context";
+
 import axios from "axios";
+import { useAuth } from "../../hook/useAuth";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const { setAuth } = useAuth();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     setError,
   } = useForm();
-  const navigate = useNavigate();
-  const { setAuth } = useContext(AuthContext);
 
   const formSubmit = async (formData) => {
     try {
@@ -28,7 +30,7 @@ const LoginForm = () => {
         if (token) {
           const authToken = token.token;
           const refreshToken = token.refreshToken;
-          console.log("authtoken", authToken);
+          // console.log("authtoken", authToken);
           setAuth({ user, authToken, refreshToken }); //user namer object e email n password pabo const user={email:"a@b.com", password:"12546877"}
           navigate("/");
         }

@@ -9,9 +9,7 @@ import { useAuth } from "../../hook/useAuth";
 
 const Header = () => {
   const { auth } = useAuth();
-  // const { user } = auth;
-  // console.log(user);
-  console.log(auth);
+
   return (
     <nav className="sticky top-0 z-50 border-b border-[#3F3F3F] bg-[#1E1F24] py-4">
       <div className="container flex flex-col items-center justify-between gap-6 sm:flex-row">
@@ -31,8 +29,16 @@ const Header = () => {
             <img src={notificationIcon} alt="Notification" />
           </button>
           <Logout />
+          {/* <Link to="/me">
+            <span>{auth?.user?.firstName}</span>
+            <img
+              className="max-h-[32px] max-w-[32px] lg:max-h-[44px] lg:max-w-[44px]"
+              src={Avatar}
+              alt="avatar"
+            />
+          </Link> */}
 
-          <button className="flex-center !ml-8 gap-3">
+          <Link to="/me" className="flex-center !ml-8 gap-3">
             <span className="text-lg font-medium lg:text-xl">
               {auth?.user?.firstName}
             </span>
@@ -41,7 +47,7 @@ const Header = () => {
               src={Avatar}
               alt=""
             />
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
