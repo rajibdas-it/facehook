@@ -31,7 +31,7 @@ const ProfilePage = () => {
       }
     };
     fetchProfile();
-  }, []);
+  }, [api, auth?.user?.id, dispatch]);
 
   if (state?.loading) {
     return <div>Fetching your profile data</div>;
