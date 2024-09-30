@@ -1,13 +1,19 @@
 import React from "react";
 
-const PostHeader = () => {
+import ThreeDotsIcon from "../../assets/icons/3dots.svg";
+import EditIcon from "../../assets/icons/edit.svg";
+import DeleteIcon from "../../assets/icons/delete.svg";
+import TimeIcon from "../../assets/icons/time.svg";
+
+const PostHeader = ({ post }) => {
+  console.log(post);
   return (
     <header className="flex items-center justify-between gap-4">
       {/* <!-- author info --> */}
       <div className="flex items-center gap-3">
         <img
           className="max-w-10 max-h-10 rounded-full lg:max-h-[58px] lg:max-w-[58px]"
-          src="./assets/images/avatars/avatar_1.png"
+          src={`${import.meta.env.VITE_SERVER_BASE_URL}/${user?.avatar}`}
           alt="avatar"
         />
         <div>
