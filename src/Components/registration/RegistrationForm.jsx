@@ -1,16 +1,36 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Field from "../common/Field";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm();
 
-  const submitForm = (formData) => {
+  const nevitage = useNavigate();
+
+  const submitForm = async (formData) => {
     console.log(formData);
+
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/auth/register`,
+        formData
+      );
+
+      if (res.status === 201) {
+        navigate("/login");
+      }
+    } catch (error) {
+      setError("root.random", {
+        type: "random",
+        message: `User with email ${formData.email} is not found`,
+      });
+    }
   };
   return (
     <form
@@ -94,7 +114,7 @@ const RegistrationForm = () => {
           }`}
         />
       </Field> */}
-
+      <p>{errors?.root?.random?.message}</p>
       <button
         className="auth-input bg-lwsGreen font-bold text-deepDark transition-all hover:opacity-90"
         type="submit"
