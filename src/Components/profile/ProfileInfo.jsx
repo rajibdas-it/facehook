@@ -4,8 +4,8 @@ import { useProfile } from "../../hook/useProfile";
 import ProfileImg from "./ProfileImg";
 
 const ProfileInfo = () => {
-  const { state, dispatch } = useProfile();
-  console.log(state.user);
+  const { state } = useProfile();
+  // console.log(state.user);
   return (
     <div className="flex flex-col items-center py-8 text-center">
       <ProfileImg />

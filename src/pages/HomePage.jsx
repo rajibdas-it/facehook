@@ -30,7 +30,7 @@ const HomePage = () => {
 
     fetchPosts();
   }, []);
-  console.log(state?.posts);
+  // console.log(state?.posts);
 
   if (state?.loading) {
     return <p>Loading</p>;
