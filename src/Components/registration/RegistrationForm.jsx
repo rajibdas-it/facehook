@@ -11,7 +11,7 @@ const RegistrationForm = () => {
     setError,
   } = useForm();
 
-  const nevitage = useNavigate();
+  const navigate = useNavigate();
 
   const submitForm = async (formData) => {
     console.log(formData);
