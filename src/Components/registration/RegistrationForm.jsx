@@ -77,7 +77,7 @@ const RegistrationForm = () => {
           }`}
         />
       </Field>
-      <Field label="Confrim Password" error={errors.confrimPassword}>
+      {/* <Field label="Confrim Password" error={errors.confrimPassword}>
         <input
           {...register("confrimPassword", {
             required: "Confrim Password is required",
@@ -93,7 +93,7 @@ const RegistrationForm = () => {
             !!errors.confrimPassword ? "border-red-500" : "border-gray-500"
           }`}
         />
-      </Field>
+      </Field> */}
 
       <button
         className="auth-input bg-lwsGreen font-bold text-deepDark transition-all hover:opacity-90"
