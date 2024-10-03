@@ -6,6 +6,8 @@ const PostComments = ({ post }) => {
   const { avatarURL } = useAvatar(post);
   const [showComments, setShowComments] = useState(false);
 
+  const [comments, setComments] = useState();
+
   return (
     <div>
       {/* <!-- comment input box --> */}
